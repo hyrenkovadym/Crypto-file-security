@@ -1,0 +1,623 @@
+/* =========================
+   THEME (lighter, readable)
+   ========================= */
+.mp-app {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(0, 119, 255, 0.10), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(0, 255, 170, 0.07), transparent 55%),
+    #0e141b;
+  color: #e9eef5;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+.mp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+}
+
+.mp-titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mp-title {
+  font-size: 15px;
+  line-height: 1.3;
+  color: rgba(233, 238, 245, 0.95);
+}
+
+.mp-subtitle {
+  font-size: 12px;
+  color: rgba(233, 238, 245, 0.72);
+}
+
+.mp-infoBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #e9eef5;
+  cursor: pointer;
+}
+
+/* =========================
+   MAIN LAYOUT
+   - content fills the page
+   - reserve space for fixed right sidebar
+   ========================= */
+.mp-main {
+  padding: 18px 16px;
+}
+
+/* Контейнер контенту без центрування: на всю ширину */
+.mp-layout {
+  max-width: none;
+  margin: 0;
+  padding-right: 420px; /* місце під sidebar справа */
+}
+
+@media (max-width: 980px) {
+  .mp-layout {
+    padding-right: 0;
+  }
+}
+
+/* =========================
+   FORM / CARD (main area)
+   ========================= */
+.mp-card {
+  width: 100%;
+  border-radius: 18px;
+  padding: 18px;
+
+
+  /* без великих тіней, щоб виглядало як основна робоча зона */
+  box-shadow: none;
+}
+
+.mp-cardTitle {
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: rgba(233, 238, 245, 0.92);
+}
+
+.mp-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  font-size: 12px;
+  color: rgba(233, 238, 245, 0.78);
+  margin-bottom: 12px;
+}
+
+.mp-input {
+  height: 40px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #e9eef5;
+  padding: 0 12px;
+  outline: none;
+}
+
+.mp-input:focus {
+  border-color: rgba(0, 190, 255, 0.55);
+  box-shadow: 0 0 0 3px rgba(0, 190, 255, 0.12);
+}
+
+.mp-hint {
+  margin-top: 6px;
+  font-size: 11px;
+  color: rgba(233, 238, 245, 0.62);
+  line-height: 1.35;
+}
+
+.mp-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.mp-btn {
+  flex: 1;
+  height: 42px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+
+  color: rgba(233, 238, 245, 0.95);
+  cursor: pointer;
+}
+
+.mp-btnSecondary {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.mp-status {
+  margin-top: 12px;
+  font-size: 12px;
+  color: rgba(233, 238, 245, 0.70);
+}
+
+/* =========================
+   SIDEBAR (fixed to right edge)
+   ========================= */
+.mp-sidebar {
+  position: fixed;
+  right: 16px;
+  top: 84px;     /* під хедером */
+  bottom: 16px;
+
+  width: 380px;
+  overflow: auto;
+
+  background: rgba(10, 18, 28, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 14px;
+
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 980px) {
+  .mp-sidebar {
+    position: static;
+    width: 100%;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    margin-top: 14px;
+  }
+}
+
+.mp-sidebarTitle {
+  font-size: 13px;
+  color: rgba(233, 238, 245, 0.92);
+  margin-bottom: 10px;
+}
+
+/* =========================
+   ACCORDION (colored blocks)
+   ========================= */
+.mp-acc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mp-accItem {
+  border-radius: 14px;
+  border: 1px solid rgba(0, 190, 255, 0.20);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 190, 255, 0.10),
+    rgba(0, 255, 170, 0.06)
+  );
+  overflow: hidden;
+}
+
+.mp-accItem:hover {
+  border-color: rgba(0, 190, 255, 0.35);
+}
+
+.mp-accItem.isOpen {
+  border-color: rgba(0, 255, 170, 0.35);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 190, 255, 0.14),
+    rgba(0, 255, 170, 0.10)
+  );
+}
+
+.mp-accHead {
+  width: 100%;
+  text-align: left;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 12px 12px;
+  background: transparent;
+  border: 0;
+
+  color: rgba(233, 238, 245, 0.95);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.mp-accChevron {
+  color: rgba(0, 190, 255, 0.95);
+  font-weight: 800;
+}
+
+.mp-accBody {
+  padding: 0 12px 12px 12px;
+  font-size: 11px;
+  color: rgba(233, 238, 245, 0.78);
+  line-height: 1.45;
+}
+
+/* =========================
+   MODAL
+   ========================= */
+.mp-modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.mp-modal {
+  width: 100%;
+  max-width: 440px;
+
+  background: #0f1822;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.mp-modalTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 14px 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.mp-modalTitle {
+  font-size: 14px;
+  color: rgba(233, 238, 245, 0.95);
+}
+
+.mp-closeBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #e9eef5;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 0;
+}
+
+.mp-modalBody {
+  padding: 14px;
+}
+
+.mp-devName {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.mp-devLine {
+  font-size: 12px;
+  color: rgba(233, 238, 245, 0.72);
+  margin-bottom: 6px;
+}
+
+.mp-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.10);
+  margin: 12px 0;
+}
+
+.mp-codeBox {
+  margin-top: 10px;
+  padding: 10px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+
+  color: rgba(233, 238, 245, 0.8);
+  font-size: 11px;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+/* ===== Modern file picker ===== */
+.mp-fileInputHidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.mp-filePicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 14px;
+}
+
+.mp-fileBtn {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(0, 190, 255, 0.25);
+  background: rgba(0, 190, 255, 0.10);
+  color: rgba(233, 238, 245, 0.95);
+
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mp-fileBtn:hover {
+  border-color: rgba(0, 190, 255, 0.40);
+}
+
+.mp-fileMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mp-fileMetaTitle {
+  font-size: 12px;
+  color: rgba(233, 238, 245, 0.9);
+}
+
+.mp-fileMetaSub {
+  font-size: 11px;
+  color: rgba(233, 238, 245, 0.62);
+  line-height: 1.35;
+}
+
+/* ===== Sections ===== */
+.mp-sectionTitle {
+  margin-top: 16px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: rgba(233, 238, 245, 0.85);
+}
+
+.mp-empty {
+  border-radius: 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  font-size: 11px;
+  color: rgba(233, 238, 245, 0.62);
+}
+
+/* ===== File list ===== */
+.mp-fileList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mp-fileRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 12px;
+}
+
+.mp-fileRowMain {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.mp-fileName {
+  font-size: 12px;
+  color: rgba(233, 238, 245, 0.92);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.mp-fileInfo {
+  font-size: 11px;
+  color: rgba(233, 238, 245, 0.62);
+}
+
+.mp-miniBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(233, 238, 245, 0.9);
+
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.mp-miniBtn:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* ===== History ===== */
+.mp-history {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 180px;
+  overflow: auto;
+}
+
+.mp-historyRow {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.mp-historyTime {
+  font-size: 11px;
+  color: rgba(233, 238, 245, 0.55);
+  white-space: nowrap;
+}
+
+.mp-historyText {
+  font-size: 11px;
+  color: rgba(233, 238, 245, 0.75);
+  line-height: 1.35;
+}
+/* ===== passphrase eye button ===== */
+.mp-inputWrap {
+  position: relative;
+}
+
+.mp-inputWithIcon {
+  padding-right: 44px; /* місце під кнопку ока */
+}
+
+.mp-eyeBtn {
+  position: absolute;
+  top: 50%;
+  left: 183px;
+  transform: translateY(-50%);
+
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(233, 238, 245, 0.9);
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mp-eyeBtn:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+.mp-rowBtns {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.mp-miniActionBtn {
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(233, 238, 245, 0.92);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.mp-miniActionBtnSecondary {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.mp-miniActionBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* ===== Select модерн ===== */
+.mp-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  height: 42px;
+  width: 100%;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+
+  color: rgba(233, 238, 245, 0.95);
+  padding: 0 44px 0 12px;
+
+  outline: none;
+  cursor: pointer;
+
+  /* прибираємо “синій” відчутно */
+  caret-color: transparent;
+}
+
+.mp-select:focus {
+  border-color: rgba(0, 190, 255, 0.55);
+  box-shadow: 0 0 0 3px rgba(0, 190, 255, 0.12);
+}
+
+.mp-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* стрілка */
+.mp-selectWrap {
+  position: relative;
+}
+
+.mp-selectWrap::after {
+  content: "▾";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(233, 238, 245, 0.8);
+  pointer-events: none;
+  font-size: 14px;
+}
+
+/* опції (працює не скрізь, але де працює — ок) */
+.mp-select option {
+  background: #0f1822;
+  color: rgba(233, 238, 245, 0.95);
+}
+
+.mp-select option:disabled {
+  color: rgba(233, 238, 245, 0.45);
+}
